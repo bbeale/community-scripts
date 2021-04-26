@@ -6,10 +6,34 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- Passive scan script for finding potential s3 Bucket URLs
 - payloadprocessor/to-hex.js > string to hex payload script.
 - selenium and session scripts.
 - httpfuzzerprocessor/random_x_forwarded_for_ip.js > Set 'X-Forwarded-For' to a random IP value.
 - httpfuzzerprocessor/randomUserAgent.js > Set 'User-Agent' to a random user-agent.
+- Add the following Payload Processor scripts ported from SQLMap:
+  - apostrophemask
+  - apostrophenullencode
+  - chardoubleencode
+  - charencode
+  - charunicodeencode
+  - equaltolike
+  - lowercase
+  - percentage
+  - randomcase
+  - space2comments
+- Add Google API keys finder script
+
+### Changed
+- Update minimum ZAP version to 2.10.0.
+- Rename reliability to confidence.
+- standalone/enableDebugLogging.js > use new Log4j 2 APIs.
+- standalone/window_creation_template.js > no longer extend `AbstractFrame`.
+- httpsender/Alert on HTTP Response Code Errors.js and Alert on Unexpected Content Types.js:
+  - Check if messages being analyzed are globally excluded or not;
+  - Ignore check for update messages;
+  - Include more expected content types.
+- httpsender/aws-signing-for-owasp-zap.py > read AWS environment variables for default values.
 
 ### Removed
 - standalone/loadListInGlobalVariable.js > superseded by core functionality, `ScriptVars.setGlobalCustomVar(...)` and `getGlobalCustomVar(...)`.

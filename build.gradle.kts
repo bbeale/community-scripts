@@ -6,8 +6,8 @@ import org.zaproxy.gradle.addon.misc.ExtractLatestChangesFromChangelog
 
 plugins {
     `java-library`
-    id("org.zaproxy.add-on") version "0.3.0"
-    id("com.diffplug.gradle.spotless") version "3.15.0"
+    id("org.zaproxy.add-on") version "0.5.0"
+    id("com.diffplug.spotless") version "5.12.1"
 }
 
 repositories {
@@ -22,7 +22,7 @@ val scriptsDir = layout.buildDirectory.dir("scripts")
 zapAddOn {
     addOnId.set("communityScripts")
     addOnName.set("Community Scripts")
-    zapVersion.set("2.9.0")
+    zapVersion.set("2.10.0")
     addOnStatus.set(AddOnStatus.ALPHA)
 
     releaseLink.set("https://github.com/zaproxy/community-scripts/compare/v@PREVIOUS_VERSION@...v@CURRENT_VERSION@")
@@ -104,7 +104,7 @@ spotless {
     java {
         licenseHeaderFile("$rootDir/gradle/spotless/license.java")
 
-        googleJavaFormat().aosp()
+        googleJavaFormat("1.7").aosp()
     }
 }
 
